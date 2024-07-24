@@ -37,46 +37,46 @@ function getHumanChoice() {
 
 //declare humanScore and computerScore variables and initialize them in 0
 
-let humanScore = 0;
-let computerScore = 0;
+;
 
 function playRound(humanChoice, computerChoice) {
+    
 
     switch(humanChoice) {
         case "paper": 
 
             if (computerChoice === "rock") {
                 humanScore++;
-                console.log(`You win!, computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `)
+                alert(`You win!, computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `)
             } else if (computerChoice === "paper") {
-                console.log(`You tie, computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `)
+                alert(`You tie, computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `)
             } else if (computerChoice === "scissors") {
                 computerScore++;
-                console.log(`You lose... computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `)
+                alert(`You lose... computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `)
             }
             break;
 
         case "rock":
             if (computerChoice === "scissors") {
                 humanScore++;
-                console.log(`You win!, computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `)
+                alert(`You win!, computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `)
             } else if (computerChoice === "rock") {
-                console.log(`You tie, computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `)
+                alert(`You tie, computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `)
             } else if (computerChoice === "paper") {
                 computerScore++;
-                console.log(`You lose... computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `)
+                alert(`You lose... computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `)
             }
             break;
 
             case "scissors":
                 if (computerChoice === "paper") {
                     humanScore++;
-                    console.log(`You win!, computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `)
+                    alert(`You win!, computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `)
                 } else if (computerChoice === "scissors") {
-                    console.log(`You tie, computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `)
+                    alert(`You tie, computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `)
                 } else if (computerChoice === "rock") {
                     computerScore++;
-                    console.log(`You lose... computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `)
+                    alert(`You lose... computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `)
                 }
                 break;
 
@@ -85,7 +85,56 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+let humanScore = 0;
+let computerScore = 0
 
-playRound(humanSelection, computerSelection);
+function playGame() {
+    
+
+    //GAME 1
+    let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice();
+
+    playRound(humanSelection, computerSelection);
+
+    //GAME 2
+
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice();
+    
+    playRound(humanSelection, computerSelection);
+
+    // GAME 3
+
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice();
+    
+    playRound(humanSelection, computerSelection);
+
+    //GAME 4
+
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice();
+    
+    playRound(humanSelection, computerSelection);
+
+    //GAME 5
+
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice();
+    
+    playRound(humanSelection, computerSelection);
+
+    //The winner is?
+
+    if (humanScore === computerScore) {
+        alert(`You tie, the final score is,\nyou: ${humanScore}\ncomputer: ${computerScore}`)
+    } else if (humanScore > computerScore) {
+        alert(`You won!!!, the final score is, \nyou: ${humanScore}\ncomputer: ${computerScore}`)
+    } else {
+        alert(`You lose... the final score is, \nyou: ${humanScore}\ncomputer: ${computerScore}`)
+    }
+
+}
+
+playGame();
