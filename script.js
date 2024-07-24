@@ -33,4 +33,59 @@ function getHumanChoice() {
 }
 
 // Testing the function
-console.log(getHumanChoice());
+//console.log(getHumanChoice());
+
+//declare humanScore and computerScore variables and initialize them in 0
+
+let humanScore = 0;
+let computerScore = 0;
+
+function playRound(humanChoice, computerChoice) {
+
+    switch(humanChoice) {
+        case "paper": 
+
+            if (computerChoice === "rock") {
+                humanScore++;
+                console.log(`You win!, computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `)
+            } else if (computerChoice === "paper") {
+                console.log(`You tie, computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `)
+            } else if (computerChoice === "scissors") {
+                computerScore++;
+                console.log(`You lose... computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `)
+            }
+            break;
+
+        case "rock":
+            if (computerChoice === "scissors") {
+                humanScore++;
+                console.log(`You win!, computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `)
+            } else if (computerChoice === "rock") {
+                console.log(`You tie, computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `)
+            } else if (computerChoice === "paper") {
+                computerScore++;
+                console.log(`You lose... computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `)
+            }
+            break;
+
+            case "scissors":
+                if (computerChoice === "paper") {
+                    humanScore++;
+                    console.log(`You win!, computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `)
+                } else if (computerChoice === "scissors") {
+                    console.log(`You tie, computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `)
+                } else if (computerChoice === "rock") {
+                    computerScore++;
+                    console.log(`You lose... computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `)
+                }
+                break;
+
+
+
+    }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
