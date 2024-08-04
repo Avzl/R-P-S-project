@@ -43,7 +43,7 @@ function playRound(humanChoice, computerChoice) {
         alert(`You tie, computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `);
 
     } else {
-        
+
         computerScore++;
         alert(`You lose... computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `);
         
@@ -65,21 +65,21 @@ function getTheWinner() {
 
 }
 
-function playGame() {
+// function playGame() {
 
-    for (let i = 0; i < 5; i++) {
+//     for (let i = 0; i < 5; i++) {
 
-        let computerSelection = getComputerChoice();
-        console.log(computerSelection);
-        let humanSelection = getHumanChoice();
-        console.log(humanSelection)
-        playRound(humanSelection, computerSelection);
+//         let computerSelection = getComputerChoice();
+//         console.log(computerSelection);
+//         let humanSelection = getHumanChoice();
+//         console.log(humanSelection)
+//         playRound(humanSelection, computerSelection);
 
-    }
+//     }
 
-    getTheWinner()
+//     getTheWinner()
     
 
-}
+// }
 
-playGame();
+// playGame();
