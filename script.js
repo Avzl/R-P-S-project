@@ -12,6 +12,8 @@ let choice = "";
 let computerFace = document.querySelector(".computerFace");
 
 
+let PlayerChoice = document.querySelector(".playerChoice");
+PlayerChoice.style.display = "none"
 
 
 
@@ -21,7 +23,6 @@ let computerFace = document.querySelector(".computerFace");
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random()*100);
     console.log(randomNumber);
-    let computerChoice = ""
     if (randomNumber < 33) {
         computerFace.textContent = "ROCK";
         return "rock";
@@ -42,7 +43,7 @@ function getHumanChoice() {
     let prompts = document.querySelector(".prompts");
     prompts.textContent = "Select your choice"
 
-    let PlayerChoice = document.querySelector(".playerChoice");
+    PlayerChoice.style.display = "flex"
 
     PlayerChoice.addEventListener("click", (event) => {
         let target = event.target;
@@ -120,6 +121,7 @@ PlayAndOptions.addEventListener("click", (event) => {
 
         // Play button
         case "play":
+            PlayAndOptions.style.display= "none"
             getHumanChoice()
             break;
         // Choice
