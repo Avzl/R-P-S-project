@@ -2,24 +2,34 @@
 
 let humanScore = 0;
 let computerScore = 0
-
 let gamesToPlay = 5;
-let playedGames = 0;
-
-let PlayAndOptions = document.querySelector(".PlayAndOptions");
-
-
+let playedGames = 1;
 let choice = "";
-
+let PlayAndOptions = document.querySelector(".PlayAndOptions");
 let computerFace = document.querySelector(".computerFace");
-
-
 let PlayerChoice = document.querySelector(".playerChoice");
 PlayerChoice.style.display = "none"
-
-
 let prompts = document.querySelector(".prompts");
+let runningScore = document.querySelector(".RunningScore")
 
+PlayerChoice.addEventListener("click", (event) => {
+    let target = event.target;
+
+    if (target.id === "rock" || target.id === "paper" || target.id === "scissors") {
+        choice = target.id;
+        prompts.textContent = `Your choice is: ${choice}`;
+        playGame();  
+    }
+
+})
+
+function restartGame() {
+    PlayAndOptions.style.display= "none"
+    humanScore = 0;
+    computerScore = 0;
+    refreshScore("0","0")
+    playedGames = 1;
+}
 
 PlayAndOptions.addEventListener("click", (event) => {
     let target = event.target;
@@ -29,11 +39,7 @@ PlayAndOptions.addEventListener("click", (event) => {
 
         // Play button
         case "play":
-            PlayAndOptions.style.display= "none"
-            humanScore = 0;
-            computerScore = 0;
-            refreshScore("0","0")
-            playedGames = 0;
+            restartGame()
             getHumanChoice()
             break;
         //Game mode
@@ -52,7 +58,6 @@ PlayAndOptions.addEventListener("click", (event) => {
 
 
 function refreshScore (humanScore, computerScore) {
-    let runningScore = document.querySelector(".RunningScore")
     runningScore.textContent = `${humanScore}-${computerScore}`
 }
 
@@ -80,17 +85,6 @@ function getHumanChoice() {
     prompts.textContent = "Select your choice"
 
     PlayerChoice.style.display = "flex"
-
-    PlayerChoice.addEventListener("click", (event) => {
-        let target = event.target;
-
-        if (target.id === "rock" || target.id === "paper" || target.id === "scissors") {
-            choice = target.id;
-            prompts.textContent = `Your choice is: ${choice}`;
-            playGame();  
-        }
-
-    })
 
 };
 
