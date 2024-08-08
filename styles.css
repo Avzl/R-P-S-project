@@ -12,6 +12,7 @@ body {
     flex-direction: column;
     color: white;
     background-color: #C15B5B;
+    font-family: 'ArialRounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 .header {
     display: flex;
@@ -91,4 +92,63 @@ body {
     font-family: "Calculator", sans-serif;
     color: #00EF00;
     font-size: 48px;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.PlayAndOptions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15vw;
+}
+
+#play {
+    background: #C15B5B;
+    border-radius: 100%;
+    height: 100px;
+    width: 100px;
+    
+}
+
+.Options {
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.Options > h3, .gameMode {
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+}
+.Options > h3 {
+    font-size: 24px;
+}
+.gameMode {
+    background-color:#BA4949;
+    border-radius: 25px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.Options > ul {
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+#bestOfThree, #bestOfFive {
+    border-radius: 25px;
+    border: none;
+    color: #BA4949;
+    font-size: 24px;
+    background-color: white;
+    padding: 10px;
+    font-weight: bold;
 }
