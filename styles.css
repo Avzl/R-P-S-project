@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+@font-face {
+    font-family: Calculator;
+    src: url(fonts/Calculator.ttf);
+}
 
 
 body {
@@ -20,5 +24,54 @@ body {
     font-family: "Exo 2", sans-serif;
     font-weight: 1000;
     font-size: 48px;
+    flex: none;
 
+}
+
+.main {
+    flex: auto;
+    display: flex;
+    justify-content: space-around;
+    min-height: 30vh;
+    align-items: center;
+    font-family: "Calculator", sans-serif;
+    
+}
+
+.computer, .scorebox {
+    background-color: black;
+    border: 5px solid beige;
+    border-radius: 5px;
+    min-height: 150px;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.computer {
+    border: 20px solid beige;
+    color: #00EF00;
+    font-size: 72px;
+}
+
+.scorebox {
+    flex-direction: column;
+    justify-content:start;
+    margin: 0;
+}
+
+.scoreTitle {
+    flex: 0;
+    font-size: 32px;
+    padding: 0;
+    margin: 0;
+}
+
+.RunningScore {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font-size: 72px;
 }
