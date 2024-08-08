@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    background-color: #C15B5B;
+}
+.header {
+    display: flex;
+    background-color: #BA4949;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-family: "Exo 2", sans-serif;
+    font-weight: 1000;
+    font-size: 48px;
+
+}
