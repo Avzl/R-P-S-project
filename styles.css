@@ -75,3 +75,20 @@ body {
     margin: 0;
     font-size: 72px;
 }
+
+.prompt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+.prompts {
+    background-color: black;
+    width: 30vw;
+    text-align: center;
+    padding: 30px;
+    border-radius: 25px;
+    font-family: "Calculator", sans-serif;
+    color: #00EF00;
+    font-size: 48px;
+}
