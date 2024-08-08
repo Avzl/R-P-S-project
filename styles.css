@@ -32,7 +32,9 @@ body {
 .main {
     flex: auto;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 100px;
+    padding-top: 20px;
     min-height: 30vh;
     align-items: center;
     font-family: "Calculator", sans-serif;
@@ -151,4 +153,17 @@ ul {
     background-color: white;
     padding: 10px;
     font-weight: bold;
+}
+
+.playerChoice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+#rock, #paper, #scissors {
+    border-radius: 100%;
+    padding: 30px;
+    background-color: #BA4949;
 }
