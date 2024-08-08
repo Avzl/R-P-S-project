@@ -3,6 +3,8 @@
 let humanScore = 0;
 let computerScore = 0
 
+let gamesToPlay = 5;
+let playedGames = 0;
 
 let PlayAndOptions = document.querySelector(".PlayAndOptions");
 
@@ -16,8 +18,43 @@ let PlayerChoice = document.querySelector(".playerChoice");
 PlayerChoice.style.display = "none"
 
 
+let prompts = document.querySelector(".prompts");
 
 
+PlayAndOptions.addEventListener("click", (event) => {
+    let target = event.target;
+    let gameMode = document.querySelector(".gameMode")
+
+    switch(target.id) {
+
+        // Play button
+        case "play":
+            PlayAndOptions.style.display= "none"
+            humanScore = 0;
+            computerScore = 0;
+            refreshScore("0","0")
+            playedGames = 0;
+            getHumanChoice()
+            break;
+        //Game mode
+        case "bestOfThree":
+            gamesToPlay = 3;
+            gameMode.textContent = "Best of Three"
+            break
+        case "bestOfFive":
+            gamesToPlay = 5;
+            gameMode.textContent = "Best of Five"
+            break
+
+
+    }
+})
+
+
+function refreshScore (humanScore, computerScore) {
+    let runningScore = document.querySelector(".RunningScore")
+    runningScore.textContent = `${humanScore}-${computerScore}`
+}
 
 
 function getComputerChoice() {
@@ -40,7 +77,6 @@ function getComputerChoice() {
 
 
 function getHumanChoice() {
-    let prompts = document.querySelector(".prompts");
     prompts.textContent = "Select your choice"
 
     PlayerChoice.style.display = "flex"
@@ -67,19 +103,19 @@ function playRound(humanChoice, computerChoice) {
 
         humanScore++;
 
-        alert(`You win!, computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `);
+        prompts.textContent = "A point for you!"
 
     } else if (humanChoice === computerChoice) {
 
         humanScore++;
         computerScore++;
 
-        alert(`You tie, computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `);
+        prompts.textContent = "you tied"
 
     } else {
 
         computerScore++;
-        alert(`You lose... computer choice was: ${computerChoice}, the current score is \nyou: ${humanScore} vs Computer: ${computerScore} `);
+        prompts.textContent = "A point for the computer"
         
     }
 
@@ -91,41 +127,41 @@ function playRound(humanChoice, computerChoice) {
 function getTheWinner() {
 
     if (humanScore === computerScore) {
-        alert(`You tie, the final score is,\nyou: ${humanScore}\ncomputer: ${computerScore}`)
+        prompts.textContent = "You tied! play again to beat the computer!"
+        computerFace.textContent = "OwO"
     } else if (humanScore > computerScore) {
-        alert(`You won!!!, the final score is, \nyou: ${humanScore}\ncomputer: ${computerScore}`)
+        prompts.textContent = "You won! well played!"
+        computerFace.textContent = "T_T"
     } else {
-        alert(`You lose... the final score is, \nyou: ${humanScore}\ncomputer: ${computerScore}`)
+        prompts.textContent = "Oh nono computer beat you! Play again to defeat it "
+        computerFace.textContent = "UwU"
     }
 
 }
 
 function playGame() {
+    if (playedGames === gamesToPlay) {
+        PlayAndOptions.style.display = "flex";
+        PlayerChoice.style.display = "none";
+        let playBtn = document.querySelector("#play")
+        playBtn.textContent = "Play Again"
+        getTheWinner()
 
-    let computerSelection = getComputerChoice();
-    console.log(computerSelection);
-    let humanSelection = choice;
-    console.log(humanSelection)
-    playRound(humanSelection, computerSelection);
-
-    getTheWinner()
+    } else {
+        let computerSelection = getComputerChoice();
+        console.log(computerSelection);
+        let humanSelection = choice;
+        console.log(humanSelection)
+        playRound(humanSelection, computerSelection);
+        refreshScore(humanScore, computerScore)
+        playedGames++;
+    }
+    
+    
     
 
 }
 
 
-PlayAndOptions.addEventListener("click", (event) => {
-    let target = event.target;
 
-    switch(target.id) {
-
-        // Play button
-        case "play":
-            PlayAndOptions.style.display= "none"
-            getHumanChoice()
-            break;
-        // Choice
-
-    }
-})
 
