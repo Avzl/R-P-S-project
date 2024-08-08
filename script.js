@@ -3,7 +3,7 @@
 let humanScore = 0;
 let computerScore = 0
 let gamesToPlay = 5;
-let playedGames = 1;
+let playedGames = 0;
 let choice = "";
 let PlayAndOptions = document.querySelector(".PlayAndOptions");
 let computerFace = document.querySelector(".computerFace");
@@ -28,7 +28,8 @@ function restartGame() {
     humanScore = 0;
     computerScore = 0;
     refreshScore("0","0")
-    playedGames = 1;
+    playedGames = 0;
+    computerFace.textContent = "..."
 }
 
 PlayAndOptions.addEventListener("click", (event) => {
@@ -134,6 +135,14 @@ function getTheWinner() {
 }
 
 function playGame() {
+    let computerSelection = getComputerChoice();
+    console.log(computerSelection);
+    let humanSelection = choice;
+    console.log(humanSelection)
+    playRound(humanSelection, computerSelection);
+    refreshScore(humanScore, computerScore)
+    playedGames++;
+
     if (playedGames === gamesToPlay) {
         PlayAndOptions.style.display = "flex";
         PlayerChoice.style.display = "none";
@@ -141,18 +150,8 @@ function playGame() {
         playBtn.textContent = "Play Again"
         getTheWinner()
 
-    } else {
-        let computerSelection = getComputerChoice();
-        console.log(computerSelection);
-        let humanSelection = choice;
-        console.log(humanSelection)
-        playRound(humanSelection, computerSelection);
-        refreshScore(humanScore, computerScore)
-        playedGames++;
-    }
-    
-    
-    
+    } 
+        
 
 }
 
